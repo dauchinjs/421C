@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Untitled Document</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="scripts.js"></script>
+</head>
+
+<body>
+<form>
+    <table>
+        <thead>
+        <tr>
+            <td>Name</td>
+            <td>Email</td>
+            <td>Phone Number</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><input type="text" id="name_rowIndex" name="name[]"/></td>
+            <td><input type="text" id="email_rowIndex" name="email[]"/></td>
+            <td><input type="text" id="phone_rowIndex" name="phone[]"/></td>
+        </tr>
+        </tbody>
+    </table>
+    <br/><br/>
+    <input type="button" id="add_another" value="Add Another Line"/>&nbsp;&nbsp;<input type="submit"/>
+</form>
+<br/><br/>
+<div id="ajax_results_here"></div>
+</body>
+</html>
+
+<!--
+add-another
+Tika pievienots jauns fails addRow.php, kas ģenerē jaunu HTML priekš jaunās rindas, nospiežot pogu "Add Another Line".
+Kad tiek nospiesta poga, addRow.php saņem ajax post pieprasījumu ar pašreizējo rindas ID, asptrādā saņemto informāciju
+un atgriež rezultātu HTML JSON formātā. PHP kods izmanto jQuery un, kad tiek atgriezta atbilde, tas pievieno jaunu rindu tabulai,
+izmantojot jQuery append() metodi.
+
+submit-form
+Tika pievienots jauns fails submitForm.php, kas ģenerē HTML rezultātu, kad tiek nospiesta poga "Submit".
+Kad tiek nospiesta poga, submitForm.php saņem ajax post pieprasījumu ar visiem formā ievadītajiem datiem, asptrādā saņemto informāciju
+un atgriež rezultātu HTML. PHP kods izmanto jQuery un, kad tiek atgriezta atbilde, tas atgriež rezultātu ajax_results_here konteinerī,
+izmantojot jQuery html() metodi.
+-->
